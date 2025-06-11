@@ -11,6 +11,29 @@ if true then return {
       colorscheme = "gruvbox",
     },
   },
+
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        pyright = {
+          -- Disable diagnostics
+          settings = {
+            python = {
+              analysis = {
+                typeCheckingMode = "off", -- Disable type checking
+                diagnosticMode = "off",   -- This might also be relevant
+                autoSearchPaths = true,
+                use= "pylance",
+                completeFunctionParens = true
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+
 } end
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
